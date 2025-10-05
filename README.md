@@ -16,7 +16,7 @@ This implementation is designed for exploring the theoretical properties and pra
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/scplummer/sivi
 cd sivi-project
 
 # Install dependencies

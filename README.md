@@ -17,7 +17,7 @@ This implementation is designed for exploring the theoretical properties and pra
 ```bash
 # Clone the repository
 git clone https://github.com/scplummer/sivi
-cd sivi-project
+cd sivi
 
 # Install dependencies
 pip install -r requirements.txt

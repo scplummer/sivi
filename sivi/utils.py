@@ -408,7 +408,7 @@ def test_utils():
     print_comparison(model, target, n_samples=1000)
     print(" Moment comparison works")
     
-    print("\nAll utility tests passed!")
+    print("\nAll utility tests passed")
     print("(Skipping plots in test mode)")
 
 

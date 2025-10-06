@@ -298,7 +298,7 @@ def test_trainer():
     )
     print(f" Early stopping: converged={history2['converged']}")
     
-    print("\n All trainer tests passed!")
+    print("\n All trainer tests passed")
 
 
 if __name__ == "__main__":

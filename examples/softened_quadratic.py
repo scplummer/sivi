@@ -254,14 +254,13 @@ def main():
     
     n_params = sum(p.numel() for p in model.parameters())
     print(f"  Model has {n_params:,} parameters")
-    print(f"  Using mixing_dim=32 (high for capturing dependencies)")
-    print(f"  Using FULL covariance in q(z|ε) - allows z_1 and z_2 to be correlated!")
+    print(f"  Using mixing_dim=16 (high for capturing dependencies)")
+    print(f"  Using FULL covariance in q(z|ε) - allows z_1 and z_2 to be correlated")
     print(f"  This should help capture the z_2 = f(z_1) relationship")
     print(f"  Computationally expensive but necessary for nonlinear relationships")
     
     # Train - AGGRESSIVE
     print("\nTraining (this will take several minutes)...")
-    print("Note: Nonlinear dependencies are challenging for SIVI\n")
     
     history = train(
         model=model,
@@ -306,13 +305,6 @@ def main():
     print(f"  Target (sampling error): {curvature_results['target_mse']:.6f}")
     print(f"  SIVI approximation:      {curvature_results['model_mse']:.6f}")
     
-    if curvature_results['model_mse'] < 0.01:
-        print("  ✓ Excellent capture of the nonlinear relationship!")
-    elif curvature_results['model_mse'] < 0.05:
-        print("  ✓ Good capture of the nonlinear relationship")
-    else:
-        print("  ✗ SIVI struggled to capture the curvature")
-    
     # Check correlation
     model.eval()
     with torch.no_grad():
@@ -325,14 +317,6 @@ def main():
     print(f"  SIVI:   {corr_model:.3f}")
     
     print("\n" + "="*70)
-    print("Done! Key question: Did SIVI capture the nonlinear relationship?")
-    print("Check the conditional mean plot - it should match the black curve.")
-    print("\nInterpretation:")
-    if curvature_results['model_mse'] < 0.01:
-        print("  ✓ MSE < 0.01: SIVI successfully learned the relationship!")
-    elif curvature_results['model_mse'] < 0.05:
-        print("  ~ MSE < 0.05: SIVI captured the general shape")
-    else:
-        print("  ✗ MSE > 0.05: SIVI struggled with this nonlinearity")
+
 if __name__ == "__main__":
     main()

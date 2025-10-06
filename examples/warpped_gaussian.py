@@ -280,13 +280,6 @@ def main():
     mse = compute_warp_mse(model, target, n_samples=5000)
     print(f"\nMSE in learning warp function: {mse:.6f}")
     
-    if mse < 0.01:
-        print("  ✓ Excellent capture of the warping function!")
-    elif mse < 0.05:
-        print("  ✓ Good capture of the warping function")
-    else:
-        print("  ~ Moderate capture - some deviation from true function")
-    
     # Check correlation
     model.eval()
     with torch.no_grad():

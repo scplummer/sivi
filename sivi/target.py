@@ -493,7 +493,7 @@ def test_targets():
     print(f" Tanh warp: samples shape={z_tanh.shape}")
     print(f"  Correlation(z_1, z_2): {torch.corrcoef(z_tanh.T)[0, 1]:.3f}")
     
-    print("\n All target tests passed!")
+    print("\n All target tests passed")
 
 
 if __name__ == "__main__":

@@ -315,7 +315,7 @@ def test_model():
     elbo = model.importance_weighted_elbo(log_p, z, epsilon, K=5)
     print(f" ELBO computation works: elbo={elbo.item():.4f}")
     
-    print("\nAll tests passed!")
+    print("\nAll tests passed")
 
 
 if __name__ == "__main__":

@@ -299,6 +299,6 @@ def main():
         if not np.isnan(vt) and not np.isnan(vm):
             print(f"  {z1:>6.2f}     |  {vt:>10.2f}  |  {vm:>8.2f}")
 
-
+    
 if __name__ == "__main__":
     main()
